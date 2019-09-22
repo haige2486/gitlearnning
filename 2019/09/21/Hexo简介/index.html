@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   
-  <title>Hexo简介 - 海哥のBlog</title>
+  <title>Hexo搭建博客 - 海哥のBlog</title>
   <meta charset="UTF-8">
   <meta name="description" content="null">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,15 +14,18 @@
     <meta name="baidu-site-verification" content="https://passport.baidu.com/center?_t=1569030808">
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png">
-  <meta name="keywords" content="Hexo">
+  <meta name="description" content="Hexo安装使用hexo是基于npm的安装包，环境依赖NodeJs，安装时使用命令npm install hexo-cli -g。 本地搭建部署可以使用以下命令 12345678npm install hexo-cli -g #全局安装hexo ，也可使用cnpmhexo init blog #hexo初始化blog目录cd blognpm install #安装hexo的依赖hexo gener">
+<meta name="keywords" content="Hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo简介">
+<meta property="og:title" content="Hexo搭建博客">
 <meta property="og:url" content="https://haige2486.github.io/2019/09/21/Hexo简介/index.html">
 <meta property="og:site_name" content="海哥のBlog">
+<meta property="og:description" content="Hexo安装使用hexo是基于npm的安装包，环境依赖NodeJs，安装时使用命令npm install hexo-cli -g。 本地搭建部署可以使用以下命令 12345678npm install hexo-cli -g #全局安装hexo ，也可使用cnpmhexo init blog #hexo初始化blog目录cd blognpm install #安装hexo的依赖hexo gener">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-21T03:15:08.523Z">
+<meta property="og:updated_time" content="2019-09-22T16:33:24.205Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo简介">
+<meta name="twitter:title" content="Hexo搭建博客">
+<meta name="twitter:description" content="Hexo安装使用hexo是基于npm的安装包，环境依赖NodeJs，安装时使用命令npm install hexo-cli -g。 本地搭建部署可以使用以下命令 12345678npm install hexo-cli -g #全局安装hexo ，也可使用cnpmhexo init blog #hexo初始化blog目录cd blognpm install #安装hexo的依赖hexo gener">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -30,7 +33,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1569037810391">
+  <link rel="stylesheet" href="/css/style.css?v=1569170028207">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -166,11 +169,11 @@
         
             <img src="/images/bkg.jpg">
         
-        <h1>Hexo简介</h1>
+        <h1>Hexo搭建博客</h1>
     </div>
   <div class="nexmoe-post-meta">
     <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月21日</a>
-    <a><i class="nexmoefont icon-areachart"></i>0 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>266 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
     
       <a class="nexmoefont icon-appstore-fill -link" href="/categories/notes/">notes</a>
@@ -180,7 +183,26 @@
     
   </div>
   <article>
-    
+    <h1 id="Hexo安装使用"><a href="#Hexo安装使用" class="headerlink" title="Hexo安装使用"></a><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo</a>安装使用</h1><p>hexo是基于<code>npm</code>的安装包，环境依赖<code>NodeJs</code>，安装时使用命令<code>npm install hexo-cli -g</code>。</p>
+<p>本地搭建部署可以使用以下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g #全局安装hexo ，也可使用cnpm</span><br><span class="line">hexo init blog #hexo初始化blog目录</span><br><span class="line">cd blog</span><br><span class="line">npm install #安装hexo的依赖</span><br><span class="line">hexo generate #在public目录下生成部署文件，命令简写hexo g</span><br><span class="line">hexo deploy #部署文件到远程地址上，依赖deploy git，命令简写hexo d</span><br><span class="line">hexo server #启动hexo服务，命令简写hexo s</span><br><span class="line">hexo clean #清除生成文件和缓存</span><br></pre></td></tr></table></figure>
+<p>具体参考<a href="https://hexo.io/zh-cn/docs/" title="Hexo开发文档" target="_blank" rel="noopener">Hexo官网</a>  </p>
+<h2 id="关于远程部署到github上的说明"><a href="#关于远程部署到github上的说明" class="headerlink" title="关于远程部署到github上的说明"></a>关于远程部署到github上的说明</h2><ol>
+<li><p>创建github的主页，即建立repo名为：[用户名].github.io</p>
+</li>
+<li><p><code>cnpm install --save hexo-deployer-git</code></p>
+</li>
+<li><p>修改目录下的_config.yml配置文件</p>
+<blockquote>
+<p>deploy:<br>  type: git<br>  repo: 你的git主页地址<br>  branch: master #设置本地为master，git上的代码每次会以本地为准，可不设</p>
+</blockquote>
+</li>
+<li><p>git config —global user.name “nameVal”</p>
+</li>
+<li>git config —global user.email “eamil@qq.com”,步骤4、5为git全局设置，用于部署连接</li>
+</ol>
+<h1 id="markdown编辑器typora"><a href="#markdown编辑器typora" class="headerlink" title="markdown编辑器typora"></a>markdown编辑器<a href="http://support.typora.io/" target="_blank" rel="noopener">typora</a></h1><p>具体参考<a href="http://support.typora.io/Markdown-Reference/" title="typora使用文档" target="_blank" rel="noopener">typora</a>的使用文档</p>
+
   </article>
   
     
@@ -227,7 +249,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1569037810409"></script>
+<script src="/js/app.js?v=1569170028234"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
