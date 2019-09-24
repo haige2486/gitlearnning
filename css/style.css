@@ -494,7 +494,7 @@ article pre {
   overflow: hidden;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  margin: 20px 0;
+/*margin:20px 0;*/
   position: relative;
   background: #282c34;
 }
@@ -743,7 +743,7 @@ article dd {
 article table {
   color: #5b6064;
   border-spacing: 0;
-  text-align: center;
+/*text-align:center;*/
   border-collapse: collapse;
   -webkit-box-shadow: 0 0 0 1px #eee;
   box-shadow: 0 0 0 1px #eee;
@@ -775,7 +775,7 @@ article table th {
 }
 article table td {
   border-right: 1px solid #eee;
-  padding: 13px 26px;
+  padding: 0 1em;
 }
 article table th:last-child,
 article table td:last-child {
@@ -925,6 +925,15 @@ article .mdui-btn:hover {
 font.douyin {
   text-shadow: -2px 0 rgba(0,255,255,0.5), 2px 0 rgba(255,0,0,0.5);
   animation: shake-it 0.5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+pre .line {
+  line-height: 2em;
+}
+.code pre .line {
+  margin: 0 1em;
+}
+.code {
+  width: 95%;
 }
 @-moz-keyframes shake-it {
   0% {

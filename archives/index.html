@@ -28,7 +28,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1569170028295">
+  <link rel="stylesheet" href="/css/style.css?v=1569336284882">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -52,9 +52,9 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>文章</span>1</div>
-        <div><span>标签</span>1</div>
-        <div><span>分类</span>1</div>
+        <div><span>文章</span>3</div>
+        <div><span>标签</span>2</div>
+        <div><span>分类</span>3</div>
     </div>
     <ul class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
         
@@ -122,6 +122,20 @@
         </li>
 
         
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/windows/">windows</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/网络架构与分布式缓存/">网络架构与分布式缓存</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
       </ul>
 
     </div>
@@ -133,7 +147,7 @@
   <div class="nexmoe-widget-wrap">
     <h3 class="nexmoe-widget-title">标签云</h3>
     <div id="randomtagcloud" class="nexmoe-widget tagcloud">
-      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a>
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a>
     </div>
     
   </div>
@@ -162,6 +176,71 @@
         <section class="nexmoe-posts" id="brand-waterfall">
     
     <div class="nexmoe-post">
+        <a href="/2019/09/24/Zookeeper自学笔记/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569336035337&di=fec17e46c57db77e58b98f2698441894&imgtype=0&src=http%3A%2F%2Fweb3.xin%2Fuploads%2Fimage%2F2017%2F02%2F11%2F20170211145103_33505.jpg" alt="Zookeeper自学笔记">
+                
+                <h1>Zookeeper自学笔记</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月24日</a>
+            <a><i class="nexmoefont icon-areachart"></i>1.1k 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/网络架构与分布式缓存/">网络架构与分布式缓存</a>
+            
+            
+                <a class="nexmoefont icon-tag-fill -link" href="/tags/zookeeper/">zookeeper</a>
+            
+        </div>
+        <article>
+            
+            <p>[TOC]</p>
+<h1 id="什么是zookeeper"><a href="#什么是zookeeper" class="headerlink" title="什么是zookeeper"></a>什么是zookeeper</h1><p><a href="https://zookeeper.apache.org/" title="zookeeper官网" target="_blank" rel="noopener">Zookeeper</a>是一个分布式协调服务，可用于服务发现，分布式锁，分布式领导选举，配置管理等。</p>
+<p>这一切的基础，都是Zookeeper提供了一个类似于Linux文件系统的树形结构（可认为是轻量级的内存文件系统，其每个节点znode下只能存1M数据，即不要当数据库使用），同时提供了对于每个节点的监控与通知机制。</p>
+<p>知识点：</p>
+<ol>
+<li>由于zookeeper是分布式集群服务，因此要考虑如何保证数据的一致性的。</li>
+<li>由于zookeeper是基于内存的，速度快，断电易失，所以要持久化处理。</li>
+<li>由于zookeeper是主从复制集群，主为单点（考虑单点故障、单点容量、单点压力），所以考虑HA高可用。</li>
+<li>完成分布式协调其实是很困难的，可以引入分布式锁。</li>
+</ol>
+            
+        </article>
+    </div>
+    
+    <div class="nexmoe-post">
+        <a href="/2019/09/24/windows-os-创建wifi热点/">
+            <div class="nexmoe-post-cover mdui-ripple"> 
+                
+                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569334564748&di=a855738ddf0e2fdb36037d191c4f084d&imgtype=0&src=http%3A%2F%2Fimg.7edown.com%2Fupload%2F2015%2F7%2F6%2F2015769194027894.jpg" alt="windows os 创建wifi热点">
+                
+                <h1>windows os 创建wifi热点</h1>
+            </div>
+        </a>
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月24日</a>
+            <a><i class="nexmoefont icon-areachart"></i>235 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+            
+                <a class="nexmoefont icon-appstore-fill -link" href="/categories/windows/">windows</a>
+            
+            
+        </div>
+        <article>
+            
+            <hr>
+<ol>
+<li><p>首先，在“运行”（可按快捷键<code>Windows+R</code>呼出）中输入<code>cmd</code>，打开命令提示符窗口。<br>在弹出的窗口中输入：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh wlan set hostednetwork mode=allow ssid=name key=<span class="string">'password'</span></span><br></pre></td></tr></table></figure>
+<p>其中，ssid=后为需要设置的网络名，key=后为8~63位的无线网络密码。</p>
+            
+        </li></ol></article>
+    </div>
+    
+    <div class="nexmoe-post">
         <a href="/2019/09/21/Hexo简介/">
             <div class="nexmoe-post-cover mdui-ripple"> 
                 
@@ -172,7 +251,7 @@
         </a>
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月21日</a>
-            <a><i class="nexmoefont icon-areachart"></i>266 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>401 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
             
                 <a class="nexmoefont icon-appstore-fill -link" href="/categories/notes/">notes</a>
@@ -187,22 +266,6 @@
 <p>本地搭建部署可以使用以下命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g #全局安装hexo ，也可使用cnpm</span><br><span class="line">hexo init blog #hexo初始化blog目录</span><br><span class="line">cd blog</span><br><span class="line">npm install #安装hexo的依赖</span><br><span class="line">hexo generate #在public目录下生成部署文件，命令简写hexo g</span><br><span class="line">hexo deploy #部署文件到远程地址上，依赖deploy git，命令简写hexo d</span><br><span class="line">hexo server #启动hexo服务，命令简写hexo s</span><br><span class="line">hexo clean #清除生成文件和缓存</span><br></pre></td></tr></table></figure>
 <p>具体参考<a href="https://hexo.io/zh-cn/docs/" title="Hexo开发文档" target="_blank" rel="noopener">Hexo官网</a>  </p>
-<h2 id="关于远程部署到github上的说明"><a href="#关于远程部署到github上的说明" class="headerlink" title="关于远程部署到github上的说明"></a>关于远程部署到github上的说明</h2><ol>
-<li><p>创建github的主页，即建立repo名为：[用户名].github.io</p>
-</li>
-<li><p><code>cnpm install --save hexo-deployer-git</code></p>
-</li>
-<li><p>修改目录下的_config.yml配置文件</p>
-<blockquote>
-<p>deploy:<br>  type: git<br>  repo: 你的git主页地址<br>  branch: master #设置本地为master，git上的代码每次会以本地为准，可不设</p>
-</blockquote>
-</li>
-<li><p>git config —global user.name “nameVal”</p>
-</li>
-<li>git config —global user.email “eamil@qq.com”,步骤4、5为git全局设置，用于部署连接</li>
-</ol>
-<h1 id="markdown编辑器typora"><a href="#markdown编辑器typora" class="headerlink" title="markdown编辑器typora"></a>markdown编辑器<a href="http://support.typora.io/" target="_blank" rel="noopener">typora</a></h1><p>具体参考<a href="http://support.typora.io/Markdown-Reference/" title="typora使用文档" target="_blank" rel="noopener">typora</a>的使用文档</p>
-
             
         </article>
     </div>
@@ -224,7 +287,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1569170028312"></script>
+<script src="/js/app.js?v=1569336284905"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 

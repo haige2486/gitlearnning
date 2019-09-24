@@ -3,7 +3,7 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
   
-  <title>文章归档：2019/9 - 海哥のBlog</title>
+  <title>Zookeeper自学笔记 - 海哥のBlog</title>
   <meta charset="UTF-8">
   <meta name="description" content="null">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,13 +14,20 @@
     <meta name="baidu-site-verification" content="https://passport.baidu.com/center?_t=1569030808">
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="海哥のBlog">
-<meta property="og:url" content="https://haige2486.github.io/archives/2019/09/index.html">
+  <meta name="description" content="[TOC] 什么是zookeeperZookeeper是一个分布式协调服务，可用于服务发现，分布式锁，分布式领导选举，配置管理等。 这一切的基础，都是Zookeeper提供了一个类似于Linux文件系统的树形结构（可认为是轻量级的内存文件系统，其每个节点znode下只能存1M数据，即不要当数据库使用），同时提供了对于每个节点的监控与通知机制。 知识点：  由于zookeeper是分布式集群服务，因">
+<meta name="keywords" content="zookeeper">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Zookeeper自学笔记">
+<meta property="og:url" content="https://haige2486.github.io/2019/09/24/Zookeeper自学笔记/index.html">
 <meta property="og:site_name" content="海哥のBlog">
+<meta property="og:description" content="[TOC] 什么是zookeeperZookeeper是一个分布式协调服务，可用于服务发现，分布式锁，分布式领导选举，配置管理等。 这一切的基础，都是Zookeeper提供了一个类似于Linux文件系统的树形结构（可认为是轻量级的内存文件系统，其每个节点znode下只能存1M数据，即不要当数据库使用），同时提供了对于每个节点的监控与通知机制。 知识点：  由于zookeeper是分布式集群服务，因">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://haige2486.github.io/images/ZOOKEEPER.jpg">
+<meta property="og:updated_time" content="2019-09-24T14:41:45.160Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="海哥のBlog">
+<meta name="twitter:title" content="Zookeeper自学笔记">
+<meta name="twitter:description" content="[TOC] 什么是zookeeperZookeeper是一个分布式协调服务，可用于服务发现，分布式锁，分布式领导选举，配置管理等。 这一切的基础，都是Zookeeper提供了一个类似于Linux文件系统的树形结构（可认为是轻量级的内存文件系统，其每个节点znode下只能存1M数据，即不要当数据库使用），同时提供了对于每个节点的监控与通知机制。 知识点：  由于zookeeper是分布式集群服务，因">
+<meta name="twitter:image" content="https://haige2486.github.io/images/ZOOKEEPER.jpg">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/css/mdui.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.15.8/styles/atom-one-dark.css">
    
@@ -28,7 +35,7 @@
   
   
   <link rel="stylesheet" href="//at.alicdn.com/t/font_1038733_0xvrvpg9c0r.css">
-  <link rel="stylesheet" href="/css/style.css?v=1569336284934">
+  <link rel="stylesheet" href="/css/style.css?v=1569336284720">
 </head>
 
 <body class="mdui-drawer-body-left">
@@ -173,31 +180,26 @@
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
-        <section class="nexmoe-posts" id="brand-waterfall">
+        <div class="nexmoe-post">
+    <div class="nexmoe-post-cover"> 
+        
+        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569336035337&di=fec17e46c57db77e58b98f2698441894&imgtype=0&src=http%3A%2F%2Fweb3.xin%2Fuploads%2Fimage%2F2017%2F02%2F11%2F20170211145103_33505.jpg">
+        
+        <h1>Zookeeper自学笔记</h1>
+    </div>
+  <div class="nexmoe-post-meta">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月24日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1.1k 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
     
-    <div class="nexmoe-post">
-        <a href="/2019/09/24/Zookeeper自学笔记/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569336035337&di=fec17e46c57db77e58b98f2698441894&imgtype=0&src=http%3A%2F%2Fweb3.xin%2Fuploads%2Fimage%2F2017%2F02%2F11%2F20170211145103_33505.jpg" alt="Zookeeper自学笔记">
-                
-                <h1>Zookeeper自学笔记</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月24日</a>
-            <a><i class="nexmoefont icon-areachart"></i>1.1k 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 4 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/网络架构与分布式缓存/">网络架构与分布式缓存</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/zookeeper/">zookeeper</a>
-            
-        </div>
-        <article>
-            
-            <p>[TOC]</p>
+      <a class="nexmoefont icon-appstore-fill -link" href="/categories/网络架构与分布式缓存/">网络架构与分布式缓存</a>
+    
+    
+      <a class="nexmoefont icon-tag-fill -link" href="/tags/zookeeper/">zookeeper</a>
+    
+  </div>
+  <article>
+    <p>[TOC]</p>
 <h1 id="什么是zookeeper"><a href="#什么是zookeeper" class="headerlink" title="什么是zookeeper"></a>什么是zookeeper</h1><p><a href="https://zookeeper.apache.org/" title="zookeeper官网" target="_blank" rel="noopener">Zookeeper</a>是一个分布式协调服务，可用于服务发现，分布式锁，分布式领导选举，配置管理等。</p>
 <p>这一切的基础，都是Zookeeper提供了一个类似于Linux文件系统的树形结构（可认为是轻量级的内存文件系统，其每个节点znode下只能存1M数据，即不要当数据库使用），同时提供了对于每个节点的监控与通知机制。</p>
 <p>知识点：</p>
@@ -207,71 +209,73 @@
 <li>由于zookeeper是主从复制集群，主为单点（考虑单点故障、单点容量、单点压力），所以考虑HA高可用。</li>
 <li>完成分布式协调其实是很困难的，可以引入分布式锁。</li>
 </ol>
-            
-        </article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2019/09/24/windows-os-创建wifi热点/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1569334564748&di=a855738ddf0e2fdb36037d191c4f084d&imgtype=0&src=http%3A%2F%2Fimg.7edown.com%2Fupload%2F2015%2F7%2F6%2F2015769194027894.jpg" alt="windows os 创建wifi热点">
-                
-                <h1>windows os 创建wifi热点</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月24日</a>
-            <a><i class="nexmoefont icon-areachart"></i>235 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/windows/">windows</a>
-            
-            
-        </div>
-        <article>
-            
-            <hr>
+<a id="more"></a>
+<h2 id="zookeeper结构模型"><a href="#zookeeper结构模型" class="headerlink" title="zookeeper结构模型"></a>zookeeper结构模型</h2><ol>
+<li>Zookeeper集群是一个基于主从复制的高可用集群，每个服务器承担如下三种角色中的一种</li>
+</ol>
+<ul>
+<li><p><strong>Leader</strong> 一个Zookeeper集群同一时间只会有一个实际工作的Leader，它会发起并维护与各Follwer及Observer间的心跳。所有的写操作必须要通过Leader完成再由Leader将写操作广播给其它服务器。</p>
+</li>
+<li><p><strong>Follower</strong> 一个Zookeeper集群可能同时存在多个Follower，它会响应Leader的心跳。Follower可直接处理并返回客户端的读请求，同时会将写请求转发给Leader处理，并且负责在Leader处理写请求时对请求进行投票。</p>
+</li>
+<li><p><strong>Observer</strong> 角色与Follower类似，但是无投票权。</p>
+<p>因为leader节点肯定会出现不可用情况，所以zookeeper集群有两种状态，即：可用状态（主从复制集群）与不可用状态（无主模型），由官网数据其能在200ms内恢复。</p>
+<p>因为集群中参与选举的节点越多，其选举时间越长，所以在该集群中应保证高可用情况下follower最少，其余设置为observer。</p>
+<p>因为集群中只有leader有写权限，所以zookeeper的读取能力快于写入能力。</p>
+</li>
+</ul>
 <ol>
-<li><p>首先，在“运行”（可按快捷键<code>Windows+R</code>呼出）中输入<code>cmd</code>，打开命令提示符窗口。<br>在弹出的窗口中输入：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netsh wlan set hostednetwork mode=allow ssid=name key=<span class="string">'password'</span></span><br></pre></td></tr></table></figure>
-<p>其中，ssid=后为需要设置的网络名，key=后为8~63位的无线网络密码。</p>
-            
-        </li></ol></article>
-    </div>
-    
-    <div class="nexmoe-post">
-        <a href="/2019/09/21/Hexo简介/">
-            <div class="nexmoe-post-cover mdui-ripple"> 
-                
-                    <img src="/images/bkg.jpg" alt="Hexo搭建博客">
-                
-                <h1>Hexo搭建博客</h1>
-            </div>
-        </a>
-        <div class="nexmoe-post-meta">
-            <a><i class="nexmoefont icon-calendar-fill"></i>2019年09月21日</a>
-            <a><i class="nexmoefont icon-areachart"></i>401 字</a>
-            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
-            
-                <a class="nexmoefont icon-appstore-fill -link" href="/categories/notes/">notes</a>
-            
-            
-                <a class="nexmoefont icon-tag-fill -link" href="/tags/Hexo/">Hexo</a>
-            
-        </div>
-        <article>
-            
-            <h1 id="Hexo安装使用"><a href="#Hexo安装使用" class="headerlink" title="Hexo安装使用"></a><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo</a>安装使用</h1><p>hexo是基于<code>npm</code>的安装包，环境依赖<code>NodeJs</code>，安装时使用命令<code>npm install hexo-cli -g</code>。</p>
-<p>本地搭建部署可以使用以下命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g #全局安装hexo ，也可使用cnpm</span><br><span class="line">hexo init blog #hexo初始化blog目录</span><br><span class="line">cd blog</span><br><span class="line">npm install #安装hexo的依赖</span><br><span class="line">hexo generate #在public目录下生成部署文件，命令简写hexo g</span><br><span class="line">hexo deploy #部署文件到远程地址上，依赖deploy git，命令简写hexo d</span><br><span class="line">hexo server #启动hexo服务，命令简写hexo s</span><br><span class="line">hexo clean #清除生成文件和缓存</span><br></pre></td></tr></table></figure>
-<p>具体参考<a href="https://hexo.io/zh-cn/docs/" title="Hexo开发文档" target="_blank" rel="noopener">Hexo官网</a>  </p>
-            
-        </article>
-    </div>
-    
-</section>
+<li><p>zookeeper是一种目录树结构，其中每个节点znode可存数据为1M，节点可按如下两个维度分类：</p>
+<ul>
+<li><em>Persist（永久节点） vs. Ephemeral（临时节点）</em><ul>
+<li><strong>Persist</strong>节点，一旦被创建，便不会意外丢失，即使服务器全部重启也依然存在。每个 Persist 节点即可包含数据，也可包含子节点</li>
+<li><strong>Ephemeral</strong>节点，在创建它的客户端与服务器间的 Session 结束时自动被删除。服务器重启会导致 Session 结束，因此 Ephemeral 类型的 znode 此时也会自动删除</li>
+</ul>
+</li>
+<li><em>Sequence（序列节点） vs. Non-sequence（非序列节点）</em><ul>
+<li><strong>Non-sequence</strong>节点，多个客户端同时创建同一 Non-sequence 节点时，只有一个可创建成功，其它匀失败。并且创建出的节点名称与创建时指定的节点名完全一样</li>
+<li><strong>Sequence</strong>节点，创建出的节点名在指定的名称之后带有10位10进制数的序号。多个客户端创建同一名称的节点时，都能创建成功，只是序号不同，其序号由zookeeper服务维护</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>当zookeeper客户端连接到zookeeper服务上时，其间是通过session来保持会话的，每次连接与断开都会消耗zookeeper的zxid(事务id)，session存在集群每个节点中，类似ephemeral。</p>
+<p>在做分布式协调时，redis集群为减少对数据库连接而创建锁，让一个线程去将数据库取回数据更新缓存，而其他线程处于等待状态，由于锁的存在增加了客户端的复杂度，其他线程不知道占用锁的线程挂掉而阻塞，如设置过期时间，又会在占锁线程未完成时重新竞争锁，导致重复阻塞，只能引入守护线程。由于session的存在，zookeeper与redis不同，其客户端与服务连接状态存于session中，session就能代表其唯一性，利用这点与ephemeral+sequence技术可实现分布式锁。</p>
+</li>
+</ol>
+<p><img src="/images/ZOOKEEPER.jpg" alt="ZOOKEEPER"></p>
 
+  </article>
+  
+    
+<div class="nexmoe-post-copyright">
+<i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+<strong>本文作者：</strong>lustghost<br>
+<strong>本文链接：</strong><a href="https://haige2486.github.io/2019/09/24/Zookeeper自学笔记/" title="https://haige2486.github.io/2019/09/24/Zookeeper自学笔记/" target="_blank" rel="noopener">https://haige2486.github.io/2019/09/24/Zookeeper自学笔记/</a><br>
+
+  <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+</div>
+
+
+  
+  <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '8f9ef9c485cb347b3dff',
+        clientSecret: '405e09a71f49ff733a50f94ae180e43b15c4f2b1',
+        id: window.location.pathname,
+        repo: 'haige2486.github.io',
+        owner: 'lustghost',
+        admin: 'haige2486'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+</div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/mdui@0.4.3/dist/js/mdui.min.js"></script>
@@ -287,7 +291,7 @@
 <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-<script src="/js/app.js?v=1569336284946"></script>
+<script src="/js/app.js?v=1569336284749"></script>
 <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.1.0/lazysizes.min.js"></script>
 
 
