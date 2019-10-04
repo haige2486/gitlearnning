@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>面向对象的五大原则 | 海哥のBlog</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[TOC] 迪米特法则什么是迪米特法则​        迪米特法则(Law of Demeter )又叫做最少知识原则，也就是说，一个对象应当对其他对象尽可能少的了解。不和陌生人说话。英文简写为: LoD。 　　迪米特法则最初是用来作为面向对象的系统设计风格的一种法则，于1987年秋天由lan holland在美国东北大学为一个叫做迪米特的项目设计提出的。">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象的五大原则">
+<meta property="og:url" content="https://haige2486.github.io/2019/10/04/面向对象的五大原则/index.html">
+<meta property="og:site_name" content="海哥のBlog">
+<meta property="og:description" content="[TOC] 迪米特法则什么是迪米特法则​        迪米特法则(Law of Demeter )又叫做最少知识原则，也就是说，一个对象应当对其他对象尽可能少的了解。不和陌生人说话。英文简写为: LoD。 　　迪米特法则最初是用来作为面向对象的系统设计风格的一种法则，于1987年秋天由lan holland在美国东北大学为一个叫做迪米特的项目设计提出的。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://haige2486.github.io/images/传统依赖架构.png">
+<meta property="og:image" content="https://haige2486.github.io/images/抽象解耦架构.png">
+<meta property="og:updated_time" content="2019-10-04T03:54:18.446Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向对象的五大原则">
+<meta name="twitter:description" content="[TOC] 迪米特法则什么是迪米特法则​        迪米特法则(Law of Demeter )又叫做最少知识原则，也就是说，一个对象应当对其他对象尽可能少的了解。不和陌生人说话。英文简写为: LoD。 　　迪米特法则最初是用来作为面向对象的系统设计风格的一种法则，于1987年秋天由lan holland在美国东北大学为一个叫做迪米特的项目设计提出的。">
+<meta name="twitter:image" content="https://haige2486.github.io/images/传统依赖架构.png">
+  
+    <link rel="alternative" href="/atom.xml" title="海哥のBlog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+  
+
+  <script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+  
+</head></html>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/images/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">lustghost</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/haige2486" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="https://weibo.com/2715696683/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="bilibili" target="_blank" href="https://space.bilibili.com/372213317" title="bilibili">bilibili</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/zookeeper/" style="font-size: 10px;">zookeeper</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">lustghost</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/images/avatar.png" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">lustghost</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/haige2486" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="https://weibo.com/2715696683/profile?topnav=1&wvr=6&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="bilibili" target="_blank" href="https://space.bilibili.com/372213317" title="bilibili">bilibili</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-面向对象的五大原则" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/10/04/面向对象的五大原则/" class="article-date">
+  	<time datetime="2019-10-04T01:40:48.000Z" itemprop="datePublished">2019-10-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      面向对象的五大原则
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/java基础/">java基础</a>
+	</div>
+
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>[TOC]</p>
+<h1 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h1><h2 id="什么是迪米特法则"><a href="#什么是迪米特法则" class="headerlink" title="什么是迪米特法则"></a>什么是迪米特法则</h2><p>​        迪米特法则(Law of Demeter )又叫做最少知识原则，也就是说，一个对象应当对其他对象尽可能少的了解。不和陌生人说话。英文简写为: LoD。</p>
+<p>　　迪米特法则最初是用来作为面向对象的系统设计风格的一种法则，于1987年秋天由lan holland在美国东北大学为一个叫做迪米特的项目设计提出的。</p>
+<a id="more"></a>
+<h2 id="迪米特法则的模式与意义"><a href="#迪米特法则的模式与意义" class="headerlink" title="迪米特法则的模式与意义"></a>迪米特法则的模式与意义</h2><p>​        迪米特法则可以简单说成：talk only to your immediate  friends。 对于OOD来说，又被解释为下面几种方式：一个软件实体应当尽可能少的与其他实体发生相互作用。每一个软件单位对其他的单位都只有最少的知识，而且局限于那些与本单位密切相关的软件单位。</p>
+<p>　　<strong>迪米特法则的初衷在于降低类之间的耦合</strong>。由于每个类尽量减少对其他类的依赖，因此，很容易使得系统的功能模块功能独立，相互之间不存在（或很少有）<strong>依赖</strong>关系。</p>
+<p>　　迪米特法则不希望类之间建立直接的联系。如果真的有需要建立联系，也希望能通过它的友元类来转达。因此，应用迪米特法则有可能造成的一个后果就是：系统中存在大量的<strong>中介类</strong>，这些类之所以存在完全是为了传递类之间的相互调用关系——这在一定程度上增加了系统的复杂度。</p>
+<h2 id="狭义的迪米特法则"><a href="#狭义的迪米特法则" class="headerlink" title="狭义的迪米特法则"></a>狭义的迪米特法则</h2><p>​        如果两个类不必彼此直接通信，那么这两个类就<strong>不应当发生直接的相互作用</strong>。如果其中一个类需要调用另一类的某一个方法的话，可以通过第三者转发这个调用。</p>
+<p>　　这么看不太形象，我们来举个例子，和陌生人说话，甲和朋友认识，朋友和陌生人认识，而甲和陌生人不认识，这时甲可以直接和朋友说话，朋友可以直接和陌生人说话，而如果甲想和陌生人说话，就必须通过朋友</p>
+<p>　　首先，第一种方式代码实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Jia</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(Friend friend)</span></span>&#123;</span><br><span class="line">        friend.play();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(Stranger stranger)</span> </span>&#123;</span><br><span class="line">        stranger.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//朋友</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Friend</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"朋友"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//陌生人</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stranger</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"陌生人"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方式是肯定不对的，甲根本没有通过朋友，直接引用了陌生人的方法，不符合迪米特法则。</p>
+<p>第二种方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//甲</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Jia</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(Friend friend)</span></span>&#123;</span><br><span class="line">        friend.play();</span><br><span class="line">        Stranger stranger = friend.getStranger();</span><br><span class="line">        stranger.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//朋友</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Friend</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(朋友<span class="string">");</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    public Stranger getStranger() &#123;</span></span><br><span class="line"><span class="string">        return new Stranger();</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//陌生人</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stranger</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"陌生人"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样的方式呢，看上去陌生人的实例是通过朋友来创建了，但还是不行，因为<strong>甲中包含的陌生人的<em>引用</em></strong>，甲还是和陌生人直接关联上了，所以，不符合迪米特法则，我们要的是甲和陌生人没有一丁点直接关系。</p>
+<p>第三种方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//甲</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Jia</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Friend friend;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> Friend <span class="title">getFriend</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> friend;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFriend</span><span class="params">(Friend friend)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.friend = friend;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(Friend friend)</span></span>&#123;</span><br><span class="line">        friend.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//朋友</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Friend</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"朋友"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">playWithStranger</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Stranger stranger = <span class="keyword">new</span> Stranger();</span><br><span class="line">        stranger.play();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//陌生人</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Stranger</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"陌生人"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方式，甲和陌生人之间就没有了任何直接联系，这样就避免了甲和陌生人的耦合度过高。当然还有一种更好的方式，与依赖倒转原则结合，为陌生人创建一个接口，如上述朋友类中的陌生人类抽象成接口。</p>
+<h2 id="狭义的迪米特法则的缺点"><a href="#狭义的迪米特法则的缺点" class="headerlink" title="狭义的迪米特法则的缺点"></a>狭义的迪米特法则的缺点</h2><p>1、在系统里造出大量的小方法，这些方法仅仅是传递间接的调用，与系统的商务逻辑无关。</p>
+<p>2、遵循类之间的迪米特法则会是一个系统的局部设计简化，因为每一个局部都不会和远距离的对象有直接的关联。但是，这也会造成系统的不同模块之间的<strong>通信效率降低</strong>，也会使系统的不同模块之间不容易协调。</p>
+<h2 id="广义的迪米特法则在类的设计上的体现"><a href="#广义的迪米特法则在类的设计上的体现" class="headerlink" title="广义的迪米特法则在类的设计上的体现"></a>广义的迪米特法则在类的设计上的体现</h2><p>优先考虑将一个类设置成不变类。</p>
+<p>尽量降低一个类的访问权限。</p>
+<p>谨慎使用Serializable。</p>
+<p>尽量降低成员的访问权限。</p>
+<h2 id="迪米特法则应用实例"><a href="#迪米特法则应用实例" class="headerlink" title="迪米特法则应用实例"></a>迪米特法则应用实例</h2><p>1、<a href="https://baike.baidu.com/item/门面模式/764642" target="_blank" rel="noopener">门面模式</a></p>
+<p>2、<a href="https://baike.baidu.com/item/调停者模式（中介者模式）/6465553" target="_blank" rel="noopener">调停者模式（中介者模式）</a></p>
+<h1 id="依赖倒转原则"><a href="#依赖倒转原则" class="headerlink" title="依赖倒转原则"></a>依赖倒转原则</h1><h2 id="什么是依赖倒转原则"><a href="#什么是依赖倒转原则" class="headerlink" title="什么是依赖倒转原则"></a>什么是依赖倒转原则</h2><p>依赖倒转(Dependence Inversion Principle )：是程序要依赖于抽象接口，不要依赖于具体实现。简单的说就是要求对抽象进行编程，不要对实现进行编程，这样就降低了客户与实现模块间的耦合。</p>
+<p>1.抽象不应该依赖于细节，细节应该依赖于抽象。</p>
+<p>2.高层模块不依赖底层模块，两者都依赖抽象。　</p>
+<p>传统的过程式设计倾向于使高层次的模块依赖于低层次的模块，抽象层依赖于具体的层次。</p>
+<p><img src="/images/传统依赖架构.png" alt="传统过程式设计"></p>
+<p><img src="/images/抽象解耦架构.png" alt="抽象解耦架构"></p>
+<h2 id="为什么要采取依赖倒转这种方式"><a href="#为什么要采取依赖倒转这种方式" class="headerlink" title="为什么要采取依赖倒转这种方式"></a>为什么要采取依赖倒转这种方式</h2><p>面向过程的开发，上层调用下层，上层依赖于下层，当下层剧烈变动时上层也要跟着变动，这就会导致模块的复用性降低而且大大提高了开发的成本。</p>
+<p>面向对象的开发很好的解决了这个问题，一般情况下抽象的变化概率很小，让用户程序依赖于抽象，实现的细节也依赖于抽象。即使实现细节不断变动，只要抽象不变，客户程序就不需要变化。这大大降低了客户程序与实现细节的耦合度。</p>
+<h2 id="依赖倒转模式应用实例"><a href="#依赖倒转模式应用实例" class="headerlink" title="依赖倒转模式应用实例"></a>依赖倒转模式应用实例</h2><p>　　1.<a href="http://www.cnblogs.com/xiaobai1226/p/8482256.html" target="_blank" rel="noopener">工厂方法模式</a></p>
+<p>　　2.<a href="http://www.cnblogs.com/xiaobai1226/p/8629441.html" target="_blank" rel="noopener">模板方法模式</a></p>
+<p>　　3.<a href="http://www.cnblogs.com/xiaobai1226/p/8617511.html" target="_blank" rel="noopener">迭代模式</a></p>
+<p> 　   综上所诉，我们可以看出一个应用中的重要策略决定及业务模型正是在这些高层的模块中。也正是这些模型包含着应用的特性。但是，当这些模块依赖于低层模块时，低层模块的修改将会直接影响到它们，迫使它们也去改变。这种境况是荒谬的。<em>应该是处于高层的模块去迫使那些低层的模块发生改变</em>。应该是处于高层的模块优先于低层的模块。无论如何高层的模块也不应依赖于低层的模块。而且，我们想能够复用的是高层的模块。通过子程序库的形式，我们已经可以很好地复用低层的模块了。当高层的模块依赖于低层的模块时，这些高层模块就很难在不同的环境中复用。但是，当那些高层模块独立于低层模块时，它们就能很简单地被复用了。这正是位于框架设计的最核心之处的原则。</p>
+<h1 id="里氏代换原则"><a href="#里氏代换原则" class="headerlink" title="里氏代换原则"></a>里氏代换原则</h1><h2 id="什么是里氏代换原则"><a href="#什么是里氏代换原则" class="headerlink" title="什么是里氏代换原则　"></a>什么是里氏代换原则　</h2><p>里氏代换原则(Liskov Substitution Principle  LSP)面向对象设计的基本原则之一。 里氏代换原则中说，任何基类可以出现的地方，子类一定可以出现。  LSP是继承复用的基石，只有当衍生类可以替换掉基类，软件单位的功能不受到影响时，基类才能真正被复用，而衍生类也能够在基类的基础上增加新的行为。里氏代换原则是对“开-闭”原则的补充。实现“开-闭”原则的关键步骤就是抽象化。而基类与子类的继承关系就是抽象化的具体实现，所以里氏代换原则是对实现抽象化的具体步骤的规范。</p>
+<p>简单的理解为一个软件实体如果使用的是一个父类，那么一定适用于其子类，而且它察觉不出父类对象和子类对象的区别。也就是说，软件里面，把父类都替换成它的子类，程序的行为没有变化。</p>
+<p>但是反过来的代换却不成立，里氏代换原则(Liskov Substitution Principle)：一个软件实体如果使用的是一个子类的话，那么它不能适用于其父类。</p>
+<p>举个长方形和正方形的例子。对于长方形的类，如果它的长宽相等，那么它就是一个正方形，因此，长方形类的对象中有一些正方形的对象。对于一个正方形的类，它的方法有个setSide和getSide，它不是长方形的子类，和长方形也不会符合LSP。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//长方形类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    setWidth(<span class="keyword">int</span> width)&#123;</span><br><span class="line">    	<span class="keyword">this</span>.width=width;</span><br><span class="line">    &#125;</span><br><span class="line">    setHeight(<span class="keyword">int</span> height)&#123;</span><br><span class="line">    	<span class="keyword">this</span>.height=height</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//正方形类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Square</span></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    setWidth(<span class="keyword">int</span> width)&#123;</span><br><span class="line">        <span class="keyword">this</span>.width=width;</span><br><span class="line">        <span class="keyword">this</span>. height=width;</span><br><span class="line">    &#125;</span><br><span class="line">    setHeight(<span class="keyword">int</span> height)&#123;</span><br><span class="line">    	<span class="keyword">this</span>.setWidth(height);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//测试方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">resize</span><span class="params">(Rectangle r)</span></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(r.getHeight()&lt;=r.getWidth)&#123;</span><br><span class="line">    	r.setHeight(r.getWidth+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>使用测试方法测试长方形类是没问题的，不过测试正方形类就会死循环。如果正方形继承了长方形，这个就不满足LSP。</p>
+<p>怎么构建符合LSP的父类呢？我们抽象一个四边形，其中只有取值方法，没有赋值方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Sibianxing</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getWidth</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getHeight</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样我们抽象的是正方形和长方形的共有的行为，而对赋值这两者的不同行为排除在抽象类中，就能满足LSP。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>在进行设计的时候，尽量从抽象类继承，而不是从具体类继承。如果从继承等级树来看，所有叶子节点应当是具体类，而所有的树枝节点应当是抽象类或者接口。当然这个只是一个一般性的指导原则，使用的时候还要具体情况具体分析。</p>
+<h1 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h1><h3 id="什么是单一职责原则"><a href="#什么是单一职责原则" class="headerlink" title="什么是单一职责原则"></a>什么是单一职责原则</h3><p><strong>应该有且仅有一个原因引起类的变更（There should never be more than one reason for a class to change）</strong></p>
+<p>单一职责原则为我们提供了一个编写程序的准则，要求我们在编写类，抽象类，接口时，要使其功能职责单一纯碎，将导致其变更的因素缩减到最少。</p>
+<p>如果一个类承担的职责过多，就等于把这些职责耦合在一起。一个职责的变化可能会影响或损坏其他职责的功能。而且职责越多，这个类变化的几率就会越大，类的稳定性就会越低。</p>
+<p>在软件开发中，经常会遇到一个功能类T负责两个不同的职责：职责P1，职责P2。现因需求变更需要更改职责P1来满足新的业务需求，当我们实现完成后，发现因更改职责P1竟导致原本能够正常运行的职责P2发生故障。而修复职责P2又不得不更改职责P1的逻辑，这便是因为功能类T的职责不够单一，职责P1与职责P2耦合在一起导致的。</p>
+<p>举个例子，比如IO流中的FileReader类，构造这个类中的参数类都是单一原则的，不过他们又是内聚在一起的。这样的设计在其某个职责节点上发生变化，不会影响逻辑实现。</p>
+<p>单一职责原则不是单单的将类的功能进行颗粒化拆分，拆分的越细越好，这样虽然可以保证类的功能职责的单一性，但是也会导致类的数量暴增，功能实现复杂，一个功能需要多个功能细分后的类来完成，会造成类的调用繁琐，类间关系交织混乱，后期维护困难。所以单一职责原则并不是要求类的功能拆分的越细越好，对类的功能细分需要有个度（抽象同有行为逻辑），细分到什么程度才是最合适呢，细分到在应对未来的拓展时，有且仅有一个因素导致其变更。</p>
+<p>在一个项目中，类不是孤立存在的，是需要与其他类相互配合实现复杂功能的。所以类的职责和变更因素都是难以衡量的，会因所属项目的不同而不同。需要在长期的开发经验中慢慢摸索。</p>
+<h1 id="开放封闭原则"><a href="#开放封闭原则" class="headerlink" title="开放封闭原则"></a>开放封闭原则</h1><h2 id="什么是开放封闭原则"><a href="#什么是开放封闭原则" class="headerlink" title="什么是开放封闭原则"></a>什么是开放封闭原则</h2><p>　　开放封闭原则（OCP，Open Closed  Principle）是所有面向对象原则的核心。软件设计本身所追求的目标就是封装变化、降低耦合，而开放封闭原则正是对这一目标的最直接体现。其他的设计原则，很多时候是为实现这一目标服务的，例如以Liskov替换原则实现最佳的、正确的继承层次，就能保证不会违反开放封闭原则。　</p>
+<p>　　<strong>关于开放封闭原则，其核心的思想是：软件实体应该是可扩展，而不可修改的。也就是说，一个软件实体应当对扩展是开放的，而对修改是封闭的。</strong>　</p>
+<p>　　因此，开放封闭原则主要体现在两个方面：对扩展开放，意味着有新的需求或变化时，可以对现有代码进行扩展，以适应新的情况。对修改封闭，意味着类一旦设计完成，就可以独立完成其工作，而不要对类进行任何修改。</p>
+<p>　　在设计一个模块时，应当使得这个模块可以在不被修改的前提下被扩展。也就是说，应当可以在不必修改源代码的情况下修改这个模块的行为。</p>
+<p>　　设计的目的便在于面对需求的改变而保持系统的相对稳定，从而使得系统可以很容易的从一个版本升级到另一个版本。</p>
+<p>　　“需求总是变化”、“世界上没有一个软件是不变的”，这些言论是对软件需求最经典的表白。从中透射出一个关键的意思就是，对于软件设计者来说，必须在不需要对原有的系统进行修改的情况下，实现灵活的系统扩展。而如何能做到这一点呢？</p>
+<p>　　只有依赖于抽象。实现开放封闭的核心思想就是对抽象编程，而不对具体编程，因为抽象相对稳定。让类依赖于固定的抽象，所以对修改就是封闭的；而通过面向对象的继承和对多态机制，可以实现对抽象体的继承，通过覆写其方法来改变固有行为，实现新的扩展方法，所以对于扩展就是开放的。这是</p>
+<p>实施开放封闭原则的基本思路，同时这种机制是建立在两个基本的设计原则的基础上，这就是Liskov替换原则和合成/聚合复用原则。</p>
+<p>　　对于违反这一原则的类，必须进行重构来改善，常用于实现的设计模式主要有Template Method模式和Strategy模式。而封装变化，是实现这一原则的重要手段，将经常发生变化的状态封装为一个类。</p>
+<h2 id="怎样做到开放封闭原则"><a href="#怎样做到开放封闭原则" class="headerlink" title="怎样做到开放封闭原则"></a>怎样做到开放封闭原则</h2><p>　　实际上，绝对封闭的系统是不存在的。无论模块是怎么封闭，到最后，总还是有一些无法封闭的变化。而我们的思路就是：既然不能做到完全封闭，那我们就应该对那些变化封闭，那些变化隔离做出选择。我们做出选择，然后将那些无法封闭的变化抽象出来，进行隔离，允许扩展，尽可能的减少系统的开发。当系统变化来临时，我们要及时的做出反应。</p>
+<p>​      我们并不害怕改变的到来。当变化到来时，我们首先需要做的不是修改代码，而是尽可能的将变化抽象出来进行隔离，然后进行扩展。面对需求的变化，对程序的修改应该是尽可能通过添加代码来实现，而不是通过修改代码来实现。</p>
+<p>​       实际上，变化或者可能的变化来的越早，抽象就越容易，相对的，代码的维护也就越容易；而当项目接近于完成而来的需求变化，则会使抽象变得很困难——这个困难，并不是抽象本身的困难，抽象本身并没有困难，困难在于系统的架构已经完成，修改牵扯的方面太多而使得抽象工作变得很困难。</p>
+<p>我们举个银行业务的例子</p>
+<p>银行有四项业务，存款，取款，转账和买基金</p>
+<p>如果用普通的方式来写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 银行业务员</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BankWorker</span> </span>&#123;</span><br><span class="line">    <span class="comment">//负责存款业务</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">saving</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"进行存款操作"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//负责取款业务</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">drawing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"进行取款操作"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//负责转账</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">zhuanzhang</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"进行转账操作"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//负责基金的申购</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">jijin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"进行基金申购操作"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样等同于一个业务员负责了所有的业务，站在银行窗口焦急等待的用户，在长长的队伍面前显得无奈。所以，将这种无奈迁怒到银行的头上是理所当然的，因为银行业务的管理显然有不当之处。银行的业务人员面对蜂拥而至的客户需求，在排队等待的人们并非只有一种需求，有人存款、有人转账，也有人申购基金，繁忙的业务员来回在不同的需求中穿梭，手忙脚乱的寻找各种处理单据，电脑系统的功能模块也在不同的需求要求下来回切换，这就是一个发生在银行窗口内外的无奈场景。而我每次面对统一排队的叫号系统时，都为前面长长的等待人群而叫苦，从梳理银行业务员的职责来看，在管理上他们负责的业务过于繁多，将其对应为软件设计来实现，这种拙劣的设计就上面例子中的方式。</p>
+<p>这样，如果要修改的话，如果银行新添加了一项业务，这个业务员就得新增这项业务，这样扩展行就很差，而且，只要新增业务就要修改源码。</p>
+<p>所以下面我们用符合开放封闭原则的方式来编写代码把不同的业务分配给不同的业务员，所以先编写抽象业务员父类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 银行业务员接口，是所有银行业务员的抽象父类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BankWorker</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 负责存款业务的业务员</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SavingBankWorker</span> <span class="keyword">implements</span> <span class="title">BankWorker</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"进行存款操作"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 负责取款业务的业务员</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WithdrawalsBankWorker</span>  <span class="keyword">implements</span> <span class="title">BankWorker</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"进行取款操作"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 负责转账业务的业务员</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZhuanZhangBankWorker</span> <span class="keyword">implements</span> <span class="title">BankWorker</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"进行转账操作"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 负责基金业务的业务员</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JiJinBankWorker</span> <span class="keyword">implements</span> <span class="title">BankWorker</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"进行基金申购操作"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，这样的形式就可以做到，增加业务只需新增业务员即可，不必对原有业务进行任何的修改，也符合了开放封闭原则　</p>
+<h2 id="开放封闭原则的优越性"><a href="#开放封闭原则的优越性" class="headerlink" title="开放封闭原则的优越性"></a>开放封闭原则的优越性</h2><p>1.通过扩展已有的软件系统，可以提供新的行为，以满足对软件的新需求，是变化中的软件有一定的适应性和灵活性。</p>
+<p>2.已有的软件模块，特别是最重要的抽象模块不能再修改，这就使变化中的软件系统有一定的稳定性和延续性。</p>
+<h2 id="使用建议"><a href="#使用建议" class="headerlink" title="使用建议"></a>使用建议</h2><p>1、开放封闭原则，是最为重要的设计原则，Liskov替换原则和合成/聚合复用原则为开放封闭原则的实现提供保证。</p>
+<p>2、可以通过Template Method模式和Strategy模式进行重构，实现对修改封闭、对扩展开放的设计思路。</p>
+<p>3、封装变化，是实现开放封闭原则的重要手段，对于经常发生变化的状态一般将其封装为一个抽象，例如银行业务中的IBankProcess接口。</p>
+<p>4、拒绝滥用抽象，<strong>只将经常变化的部分进行抽象</strong>，这种经验可以从设计模式的学习与应用中获得。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/09/24/Zookeeper自学笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Zookeeper自学笔记</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="ds-share share" data-thread-key="面向对象的五大原则" data-title="面向对象的五大原则" data-url="https://haige2486.github.io/2019/10/04/面向对象的五大原则/"  data-images="/images/avatar.png" data-content="面向对象的五大原则">
+    <div class="ds-share-inline">
+      <ul  class="ds-share-icons-16">
+      	<li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+        <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+        <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+        <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+        <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+      </ul>
+      <div class="ds-share-icons-more">
+      </div>
+    </div>
+ </div>
+ 
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2019 lustghost
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/smackgg/hexo-theme-smackdown" target="_blank">Smackdown</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="/js/main.js"></script>
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
